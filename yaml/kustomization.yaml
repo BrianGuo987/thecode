@@ -4,4 +4,5 @@ resources:
 - nginxtest.yaml
 images:
 - name: IMAGE_PLACEHOLDER
-  newName: brianguo897/nginx:1.25
+  newName: brianguo897/nginx
+  newTag: 29b759fd90e7a5b79c95874263625e69ac30b03d
