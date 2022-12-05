@@ -16,6 +16,8 @@ spec:
       maxUnavailable: 0
       #delete and create  a certain number of new pod
       #use a fake image to test
+  nodeSelector:
+    name: node00
   selector:
     matchLabels:
       app: nginx-test-registry
