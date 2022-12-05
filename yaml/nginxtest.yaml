@@ -16,8 +16,6 @@ spec:
       maxUnavailable: 0
       #delete and create  a certain number of new pod
       #use a fake image to test
-  nodeSelector:
-    name: node00
   selector:
     matchLabels:
       app: nginx-test-registry
@@ -26,6 +24,8 @@ spec:
       labels:
         app: nginx-test-registry
     spec:
+      nodeSelector:
+        name: node00
       containers:
       - name: nginx-test-registry
         image: IMAGE_PLACEHOLDER
