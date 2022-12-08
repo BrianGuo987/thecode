@@ -24,8 +24,8 @@ spec:
       labels:
         app: nginx-test-registry
     spec:
-      nodeSelector:
-        name: node00
+#      nodeSelector:
+ #       name: node00
       containers:
       - name: nginx-test-registry
         image: IMAGE_PLACEHOLDER
