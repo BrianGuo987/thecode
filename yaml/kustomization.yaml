@@ -5,4 +5,4 @@ resources:
 images:
 - name: IMAGE_PLACEHOLDER
   newName: brianguo897/nginx
-  newTag: 2c3c7352662e95e55c8047bee2c7d10091b64c9f
+  newTag: 916ad9b3c6027e998d00452384074e9fd6357db9
