@@ -13,7 +13,7 @@ spec:
     rollingUpdate:
       maxSurge: 1
       #create a new pod or 2 new pod more than desired
-      maxUnavailable: 0
+      maxUnavailable: 1
       #delete and create  a certain number of new pod
       #use a fake image to test
   selector:
@@ -24,9 +24,11 @@ spec:
       labels:
         app: nginx-test-registry
     spec:
+#      nodeSelector:
+ #       name: node00
       containers:
       - name: nginx-test-registry
-        image: brianguo897/nginx:1.25
+        image: IMAGE_PLACEHOLDER
         livenessProbe:
           httpGet:
             path: /index.html
