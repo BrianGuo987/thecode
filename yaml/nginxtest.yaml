@@ -93,3 +93,10 @@ spec:
             name: nginx-test-registry-svc
             port:
               number: 2345
+      - path: /dev
+        pathType: Prefix
+        backend:
+          service:
+            name: dev-nginx-test-registry-svc
+            port:
+              number: 2345
