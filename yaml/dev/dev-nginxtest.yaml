@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: dev-namespace
+  annotations:
+    kubernetes.io/change-cause: "change to 1.25"
+  name: nginx-test-regist333
+  labels:
+    app: nginx-test-registry
+spec:
+  replicas: 5
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      #create a new pod or 2 new pod more than desired
+      maxUnavailable: 1
+      #delete and create  a certain number of new pod
+      #use a fake image to test
+  selector:
+    matchLabels:
+      app: nginx-test-registry
+  template:
+    metadata:
+      labels:
+        app: nginx-test-registry
+    spec:
+#      nodeSelector:
+ #       name: node00
+      containers:
+      - name: nginx-test-registry
+        image: IMAGE_PLACEHOLDER
+        livenessProbe:
+          httpGet:
+            path: /index.html
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
+          periodSeconds: 20
+          successThreshold: 1
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /index.html
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"        
+        
+        
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: dev-namespace
+  name: nginx-test-registry-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx-test-registry
+  ports:
+    - port: 2345
+      protocol: TCP
+      targetPort: 80
