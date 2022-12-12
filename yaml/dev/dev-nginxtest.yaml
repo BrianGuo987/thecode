@@ -72,6 +72,6 @@ spec:
   selector:
     app: dev-nginx-test-registry
   ports:
-    - port: 2345
+    - port: 8888
       protocol: TCP
       targetPort: 80
