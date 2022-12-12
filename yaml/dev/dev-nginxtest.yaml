@@ -4,9 +4,9 @@ metadata:
   namespace: dev-namespace
   annotations:
     kubernetes.io/change-cause: "change to 1.25"
-  name: nginx-test-regist333
+  name: dev-nginx-test-regist333
   labels:
-    app: nginx-test-registry
+    app: dev-nginx-test-registry
 spec:
   replicas: 1
   strategy:
@@ -18,11 +18,11 @@ spec:
       #use a fake image to test
   selector:
     matchLabels:
-      app: nginx-test-registry
+      app: dev-nginx-test-registry
   template:
     metadata:
       labels:
-        app: nginx-test-registry
+        app: dev-nginx-test-registry
     spec:
 #      nodeSelector:
  #       name: node00
@@ -66,11 +66,11 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: dev-namespace
-  name: nginx-test-registry-svc
+  name: dev-nginx-test-registry-svc
 spec:
   type: ClusterIP
   selector:
-    app: nginx-test-registry
+    app: dev-nginx-test-registry
   ports:
     - port: 2345
       protocol: TCP
