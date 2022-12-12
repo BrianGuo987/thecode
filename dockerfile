@@ -1,3 +1,3 @@
 FROM nginx:1.22
-RUN MKDIR /usr/share/nginx/html/dev
+RUN mkdir /usr/share/nginx/html/dev
 COPY index.html /usr/share/nginx/dev/html
