@@ -36,7 +36,7 @@ jobs:
 
     # Update yamls
     - name: Update yamls
-      working-directory: yaml/dev
+      working-directory: yaml/dev/
       run: |-
         kustomize edit set image IMAGE_PLACEHOLDER=brianguo897/nginx-dev:${{ github.sha }}
     # Commit and push
