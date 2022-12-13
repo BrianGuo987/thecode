@@ -1,5 +1,5 @@
 while true
 do
-date >index.html
+date >/usr/share/nginx/html/index.html
 
 done
