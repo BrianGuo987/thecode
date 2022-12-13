@@ -29,26 +29,26 @@ spec:
       containers:
       - name: nginx-test-registry
         image: IMAGE_PLACEHOLDER
-        livenessProbe:
-          httpGet:
-            path: /index.html
-            port: 80
-            scheme: HTTP
-          initialDelaySeconds: 15
-          timeoutSeconds: 1
-          periodSeconds: 20
-          successThreshold: 1
-          failureThreshold: 3
-        readinessProbe:
-          httpGet:
-            path: /index.html
-            port: 80
-            scheme: HTTP
-          initialDelaySeconds: 5
-          timeoutSeconds: 1
-          periodSeconds: 10
-          successThreshold: 1
-          failureThreshold: 3
+#        livenessProbe:
+ #         httpGet:
+ #           path: /index.html
+ #           port: 80
+#            scheme: HTTP
+#          initialDelaySeconds: 15
+  #        timeoutSeconds: 1
+#          periodSeconds: 20
+#          successThreshold: 1
+   #       failureThreshold: 3
+    #    readinessProbe:
+    #      httpGet:
+    #        path: /index.html
+   #         port: 80
+   #         scheme: HTTP
+  #        initialDelaySeconds: 5
+   #       timeoutSeconds: 1
+  #        periodSeconds: 10
+   #       successThreshold: 1
+    #      failureThreshold: 3
         ports:
         - containerPort: 80
         resources:
