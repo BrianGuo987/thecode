@@ -38,6 +38,7 @@ jobs:
       working-directory: yaml
       run: |-
         kustomize edit set image IMAGE_PLACEHOLDER=brianguo897/nginx:${{ github.sha }}
+
     # Commit and push
     - uses: EndBug/add-and-commit@v7
       with:

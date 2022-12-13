@@ -8,7 +8,7 @@ metadata:
   labels:
     app: nginx-test-registry
 spec:
-  replicas: 5
+  replicas: 1
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -93,3 +93,10 @@ spec:
             name: nginx-test-registry-svc
             port:
               number: 2345
+      - path: /dev/*
+        pathType: Prefix
+        backend:
+          service:
+            name: dev-nginx-test-registry-svc
+            port:
+              number: 8888
