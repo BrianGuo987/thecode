@@ -83,6 +83,7 @@ metadata:
   namespace: brian-namespace
   name: nginx-test-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - host: localhost
   - http:
@@ -94,7 +95,7 @@ spec:
             name: nginx-test-registry-svc
             port:
               number: 2345
-      - path: /dev/
+      - path: /dev/*
         pathType: Prefix
         backend:
           service:
